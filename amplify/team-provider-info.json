@@ -10,6 +10,11 @@
             "StackName": "amplify-deracine-ksm-145847",
             "StackId": "arn:aws:cloudformation:ap-northeast-1:186007746926:stack/amplify-deracine-ksm-145847/6059a6a0-e82a-11ea-b76b-0a0f495cff22",
             "AmplifyAppId": "def7i4p97j6o7"
+        },
+        "categories": {
+            "auth": {
+                "cognito55465991": {}
+            }
         }
     }
 }

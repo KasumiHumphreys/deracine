@@ -1,0 +1,48 @@
+{
+    "paths": [
+        {
+            "name": "/items",
+            "lambdaFunction": "testAmplify",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ],
+                "unauth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            }
+        }
+    ],
+    "resourceName": "apie5a8ed1f",
+    "apiName": "apie5a8ed1f",
+    "functionArns": [
+        {
+            "lambdaFunction": "testAmplify"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 1,
+        "authRoleName": "amplify-deracine-ksm-145847-authRole",
+        "unAuthRoleName": "amplify-deracine-ksm-145847-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "testAmplify",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
