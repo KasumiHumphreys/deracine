@@ -1,7 +1,7 @@
 version: 1
 backend:
   phases:
-    # IMPORTANT - Please verify your build commands
+    # IMPORTANT - npm run-script build
     build:
       commands:
         - '# Execute Amplify CLI with the helper script'
@@ -11,7 +11,7 @@ frontend:
     build:
       commands: []
   artifacts:
-    # IMPORTANT - Please verify your build output directory
+    # IMPORTANT - /items
     baseDirectory: /
     files:
       - '**/*'
