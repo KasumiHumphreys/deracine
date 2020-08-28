@@ -1,0 +1,20 @@
+{
+    "ksm": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-deracine-ksm-135919-authRole",
+            "UnauthRoleArn": "arn:aws:iam::186007746926:role/amplify-deracine-ksm-135919-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::186007746926:role/amplify-deracine-ksm-135919-authRole",
+            "Region": "ap-northeast-1",
+            "DeploymentBucketName": "amplify-deracine-ksm-135919-deployment",
+            "UnauthRoleName": "amplify-deracine-ksm-135919-unauthRole",
+            "StackName": "amplify-deracine-ksm-135919",
+            "StackId": "arn:aws:cloudformation:ap-northeast-1:186007746926:stack/amplify-deracine-ksm-135919/47b7d510-e8eb-11ea-b0f2-0e3b3e43d478",
+            "AmplifyAppId": "dfrxjgfimljlt"
+        },
+        "categories": {
+            "auth": {
+                "cognito3b343ffc": {}
+            }
+        }
+    }
+}
