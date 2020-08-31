@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { API, graphqlOperation } from "aws-amplify";
 import { listPosts } from './graphql/queries';
 import { createPost } from './graphql/mutations';
+import { onCreatePost } from './graphql/subscriptions';
 
 class App extends Component {
 
@@ -11,7 +12,7 @@ class App extends Component {
     content: ""
   }
 
- 
+
   async componentDidMount() {
     try {
       const posts = await API.graphql(graphqlOperation(listPosts))
@@ -19,11 +20,24 @@ class App extends Component {
     } catch (e) {
       console.log(e)
     }
+    
+    API.graphql(graphqlOperation(onCreatePost)).subscribe({
+      next: (eventData) => {
+        console.log('eventData: ', eventData)
+        const post = eventData.value.data.onCreatePost
+        const posts = [...this.state.posts.filter(content => {
+          return (content.title !== post.title)
+        }), post]
+        this.setState({ posts })
+      }
+    })
+  
+  
   }
 
   createPost = async () => {
     // バリデーションチェック
-    //if (this.state.title === '' || this.state.content === '') return
+    if (this.state.title === '' || this.state.content === '') return
 
     // 新規登録 mutation
     const createPostInput = {
@@ -50,16 +64,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
-          タイトル
-        <input value={this.state.title} name="title" onChange={this.onChange}></input>
+      {this.state.posts.map((post,idx) => {return <div key={idx} class="comment">
+        <div class="title">件名：{post.title}</div>
+        <div>{post.content}</div>
+      </div>})}
+      <div class="input-form">
+            <div>
+              件名：<input value={this.state.title} name="title" onChange={this.onChange}></input>
+            </div>
+            <div>
+              <textarea onChange={this.onChange} name="content" cols="50" rows="10">{this.state.content}</textarea>
+            </div>
+            <button onClick={this.createPost}>書き込む</button>
+          </div>
         </div>
-        <div>
-        内容
-        <input value={this.state.content} name="content" onChange={this.onChange}></input>
-        </div>
-        <button onClick={this.createPost}>追加</button>
-      </div>
     )
   }
 }
