@@ -1,58 +1,66 @@
-import React from 'react';
-import Amplify, { Auth } from "aws-amplify";
-import awsmobile from "./aws-exports";
-import { withAuthenticator } from "aws-amplify-react";
+import React, { Component } from 'react';
+import { API, graphqlOperation } from "aws-amplify";
+import { listPosts } from './graphql/queries';
+import { createPost } from './graphql/mutations';
 
-// Amplifyの設定を行う
-Amplify.configure(awsmobile)
+class App extends Component {
 
-// SingUp時に、メールアドレスとパスワードを要求する
-const signUpConfig = {
-    header: 'Sign Up',
-    hideAllDefaults: true,
-    defaultCountyCode: '1',
-    signUpFields: [
-        {
-            label: 'User Name',
-            key: 'username',
-            required: true,
-            displayOrder: 1,
-            type: 'string'
-        },
-        {
-            label: 'Email',
-            key: 'email',
-            required: true,
-            displayOrder: 2,
-            type: 'string'
-        },
-        {
-            label: 'Password',
-            key: 'password',
-            required: true,
-            displayOrder: 3,
-            type: 'password'
-        }
-    ]
-}
+  state = {
+    posts: [],
+    title: "",
+    content: ""
+  }
 
-// SingOut
-function signOut(){
-  Auth.signOut()
-  .then()
-  .catch();
-}
+  async componentDidMount() {
+    try {
+      const posts = await API.graphql(graphqlOperation(listPosts))
+      console.log('posts: ', posts)
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
-function App() {
-  return (
-    <React.Fragment>
-      <button onClick={signOut}>Sign out</button>
-      <div>
-        Hello World
+  createPost = async () => {
+    // バリデーションチェック
+    //if (this.state.title === '' || this.state.content === '') return
+
+    // 新規登録 mutation
+    const createPostInput = {
+      title: this.state.title,
+      content: this.state.content
+    }
+
+    // 登録処理
+    try {
+      const posts = [...this.state.posts, createPostInput]
+      this.setState({ posts: posts, title: "", content: "" })
+      await API.graphql(graphqlOperation(createPost, { input: createPostInput }))
+      console.log('createPostInput: ', createPostInput)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+
+  render() {
+    return (
+      <div className="App">
+        <div>
+          タイトル
+        <input value={this.state.title} name="title" onChange={this.onChange}></input>
+        </div>
+        <div>
+        内容
+        <input value={this.state.content} name="content" onChange={this.onChange}></input>
+        </div>
+        <button onClick={this.createPost}>追加</button>
       </div>
-    </React.Fragment>
-  );
+    )
+  }
 }
 
-// Appコンポーネントをラップする
-export default withAuthenticator(App,{signUpConfig});
+export default App;
