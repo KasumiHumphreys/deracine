@@ -1,7 +1,7 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
-/*
-export const createBlog = `
+
+export const createBlog = /* GraphQL */ `
   mutation CreateBlog(
     $input: CreateBlogInput!
     $condition: ModelBlogConditionInput
@@ -24,7 +24,7 @@ export const createBlog = `
     }
   }
 `;
-export const updateBlog = `
+export const updateBlog = /* GraphQL */ `
   mutation UpdateBlog(
     $input: UpdateBlogInput!
     $condition: ModelBlogConditionInput
@@ -47,7 +47,7 @@ export const updateBlog = `
     }
   }
 `;
-export const deleteBlog =  `
+export const deleteBlog = /* GraphQL */ `
   mutation DeleteBlog(
     $input: DeleteBlogInput!
     $condition: ModelBlogConditionInput
@@ -70,9 +70,7 @@ export const deleteBlog =  `
     }
   }
 `;
-
-
-export const createPost = `
+export const createPost = /* GraphQL */ `
   mutation CreatePost(
     $input: CreatePostInput!
     $condition: ModelPostConditionInput
@@ -105,8 +103,7 @@ export const createPost = `
     }
   }
 `;
-
-export const updatePost =  `
+export const updatePost = /* GraphQL */ `
   mutation UpdatePost(
     $input: UpdatePostInput!
     $condition: ModelPostConditionInput
@@ -139,7 +136,7 @@ export const updatePost =  `
     }
   }
 `;
-export const deletePost =  `
+export const deletePost = /* GraphQL */ `
   mutation DeletePost(
     $input: DeletePostInput!
     $condition: ModelPostConditionInput
@@ -172,7 +169,7 @@ export const deletePost =  `
     }
   }
 `;
-export const createComment =  `
+export const createComment = /* GraphQL */ `
   mutation CreateComment(
     $input: CreateCommentInput!
     $condition: ModelCommentConditionInput
@@ -202,7 +199,7 @@ export const createComment =  `
     }
   }
 `;
-export const updateComment = `
+export const updateComment = /* GraphQL */ `
   mutation UpdateComment(
     $input: UpdateCommentInput!
     $condition: ModelCommentConditionInput
@@ -232,7 +229,7 @@ export const updateComment = `
     }
   }
 `;
-export const deleteComment = `
+export const deleteComment = /* GraphQL */ `
   mutation DeleteComment(
     $input: DeleteCommentInput!
     $condition: ModelCommentConditionInput
@@ -259,20 +256,6 @@ export const deleteComment = `
       content
       createdAt
       updatedAt
-    }
-  }
-`;
-*/
-
-export const createPost = `
-  mutation CreatePost(
-    $input: CreatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    createPost(input: $input, condition: $condition) {
-      id
-      title
-      content
     }
   }
 `;

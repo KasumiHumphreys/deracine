@@ -11,6 +11,7 @@ class App extends Component {
     content: ""
   }
 
+ 
   async componentDidMount() {
     try {
       const posts = await API.graphql(graphqlOperation(listPosts))
