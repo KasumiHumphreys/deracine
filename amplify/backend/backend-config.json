@@ -16,5 +16,13 @@
 				}
 			}
 		}
+	},
+	"auth": {
+		"deracine3579a542": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
 	}
 }

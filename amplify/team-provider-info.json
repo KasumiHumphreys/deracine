@@ -10,6 +10,11 @@
             "StackName": "amplify-deracine-dev-120305",
             "StackId": "arn:aws:cloudformation:ap-northeast-1:186007746926:stack/amplify-deracine-dev-120305/7ef0c0d0-eb36-11ea-8531-0ab0e844d044",
             "AmplifyAppId": "d3lwyaaex5ionj"
+        },
+        "categories": {
+            "auth": {
+                "deracine3579a542": {}
+            }
         }
     }
 }
