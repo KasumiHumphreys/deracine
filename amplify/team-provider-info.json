@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-deracine-dev-120305-authRole",
+            "UnauthRoleArn": "arn:aws:iam::186007746926:role/amplify-deracine-dev-120305-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::186007746926:role/amplify-deracine-dev-120305-authRole",
+            "Region": "ap-northeast-1",
+            "DeploymentBucketName": "amplify-deracine-dev-120305-deployment",
+            "UnauthRoleName": "amplify-deracine-dev-120305-unauthRole",
+            "StackName": "amplify-deracine-dev-120305",
+            "StackId": "arn:aws:cloudformation:ap-northeast-1:186007746926:stack/amplify-deracine-dev-120305/7ef0c0d0-eb36-11ea-8531-0ab0e844d044",
+            "AmplifyAppId": "d3lwyaaex5ionj"
+        }
+    }
+}
